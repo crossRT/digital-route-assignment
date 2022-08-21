@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-webapp-deployment
+  labels:
+    app: java-webapp
+spec:
+  selector:
+    matchLabels:
+      app: java-webapp
+  template:
+    metadata:
+      labels:
+        app: java-webapp
+    spec:
+      containers:
+        - name: java-webapp
+          image: springio/gs-spring-boot-docker:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-webapp-service
+spec:
+  selector:
+    app: java-webapp
+  ports:
+    - port: 8080
+---

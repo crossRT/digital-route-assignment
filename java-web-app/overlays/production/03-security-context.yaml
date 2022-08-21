@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-webapp-deployment
+spec:
+  template:
+    spec:
+      securityContext:
+        runAsUser: 1000

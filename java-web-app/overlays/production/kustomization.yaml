@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: production
+resources:
+  - ./../../base/
+  - 00-namespace.yaml
+  - 01-ingress.yaml
+
+patches:
+  - 02-affinity.yaml
+  - 03-security-context.yaml
+  - 04-probe.yaml
